@@ -1,15 +1,22 @@
 #!/usr/bin/make -f
 
-
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -O--buildsystem=cmake -- -DODROID=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 override_dh_auto_test:
 	# Disable auto tests at build time
 	:
 
+override_dh_makeshlibs:
+	# Fix lintian libgl4es: package-has-unnecessary-activation-of-ldconfig-trigger warning
+	dh_makeshlibs -O--buildsystem=cmake --no-scripts
+
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -f lib/*.so*
 
-
+override_dh_builddeb:
+	dh_builddeb -- -Zxz

@@ -1,0 +1,8 @@
+/.debhelper
+/debhelper-build-stamp
+/files
+/libgl4es*/
+/tmp/
+/*.debhelper.log
+/*.debhelper
+/*.substvars

@@ -1,3 +1,89 @@
+gl4es (1.1.4-2) unstable; urgency=medium
+
+  [ Jia Yuan Lo ]
+  * Replace ifndef ANDROID with ifndef NOX11 for X11
+
+  [ ptitSeb ]
+  * Fixed issue with glXChooseFBConfig/glXChooseVisual
+
+  [ Alex ]
+  * add Tinker Board 1/1S compilation steps
+
+  [ ptitSeb ]
+  * Fixed an issue with LOGSHADERERROR on old program
+  * [GLES2] Some small fixes to ARB old program handling
+  * [GLX] smll change, again, to gl4es_glXGetVisualFromFBConfig (help CMR)
+
+  [ JohnnyonFlame ]
+  * Added GOA_CLONE definitions. Sets compilation definitions for GO Advance
+    clones, such as the RG351p/v, Gameforce Chi, RGB10 and other such devices.
+  * Add glX function stubs to be used with NOX11 targets. Can be enabled with
+    GLX_STUBS, Works around Shovel Knight assert failures during startup.
+  * Fix bit rot on EGL wrappers.
+  * Added eglGetPlatformDisplay wrappers.
+  * Include string.h on egl/lookup.c (for strcmp).
+  * Fix backslash newline shader failures.
+  * Added fbo resolution hack. The envvar LIBGL_FB_TEX_SCALE controls the scale
+    of the framebuffer textures.
+  * Added texture copy skip hack. The envvar LIBGL_SKIPTEXCOPIES controls
+    whether or not to skip texture copies are skipped.
+  * Skip Iconoclasts hotspot shaders for performance reasons.
+
+  [ ptitSeb ]
+  * Fixed texture init when creating one without glGenTextures
+  * Fixed a erroneous warning (for #365)
+
+  [ CosineMath ]
+  * [GLES3] Add simple wrapper for glVertexAttribIPointer()
+
+  [ ptitSeb ]
+  * [AMIGAOS4] Fixed a compilation issue
+  * [GLES2] Fixed a bug in preproc parser, fixing shader conversion that
+    contained a version marquer (should help #366 and other)
+  * [GLES2] Small change in shader login
+  * [GLES2] Small change in shader logs
+  * Prepare for adding glVertexAttribIPointer later
+  * [GLES2] Fixed internal transpose functions (for #346)
+  * Added GL_UNSIGNED_INT to target for pixel_convert, and fixed
+    GL_UNSIGNED_SHORT for target (for #366)
+  * Fixed issue when mixing VAO and glBegin/glEnd (should help #373, maybe #358,
+    probably other too)
+
+  [ Le Philousophe ]
+  * Unbind framebuffer, if it is bound, before freeing it
+  * Don't upgrade depth to GL_UNSIGNED_INT when GL_UNSIGNED_SHORT is given
+
+  [ ptitSeb ]
+  * Fixed a nasty bug in listdraw.c (thanks @artDev)
+  * Put back a line removed by mystake in previous commit
+
+  [ Alibek Omarov ]
+  * arbparser: add brackets to case blocks where variables are declared, to
+    prevent warnings spam on GCC
+  * arbparser: close curly braces before break
+
+  [ ptitSeb ]
+  * Fixed some issue with some glFog parameter not correctly handled
+    (GL_FOG_MODE, GL_FOG_COORD_SRC and GL_FOG_DISTANCE_MODE_NV)
+  * Fixed GL_POINT_SIZE_RANGE getter (for #386)
+
+  [ netpipe ]
+  * cbpfile
+
+  [ ptitSeb ]
+  * Added an option on PYRA to limit FPS to 60
+  * Fixed a potential issue when adjusting fbo-attached texture (fix regression
+    black screen for RetroCityRampage and probably other)
+  * Try to improve handling of copy_array_* with binded buffers (for #392)
+  * Reset GL Error after the hardware tests (for #394)
+  * Fixed previous commit
+  * Fixed RGBA->5551 fast path conversion (for #394)
+  * Fixed default state for GL_COMBINE src and op (for #394)
+  * [PANDORA] better test for GL_IMG_uniform_buffer_object
+  * Add GL_R to pixel_sizeof macro (for #395)
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 24 Jan 2024 17:50:00 +0800
+
 gl4es (1.1.4-1) unstable; urgency=medium
 
   * Initial release 

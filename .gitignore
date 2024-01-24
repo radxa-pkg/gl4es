@@ -2,10 +2,13 @@
 .vscode/
 CMakeFiles/
 lib/
-Makefile
 CMakeCache.txt
 CTestTestfile.cmake
 cmake_install.cmake
 spec/yml/gles-1.1-full.yml
 /build/
 /tests/*.png
+/.pc/
+/obj-*/
+/SOURCE
+.vscode-ctags
